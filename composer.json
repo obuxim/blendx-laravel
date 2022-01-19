@@ -1,0 +1,26 @@
+{
+    "name": "duoneos/blendx",
+    "description": "Blendx is a psuedo framework on top of Laravel for REST APIs and custom CRUD operations.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Duoneos\\Blendx\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zubair Hasan",
+            "email": "z@duoneos.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Duoneos\\Blendx\\BlendxServiceProvider"
+            ]
+        }
+    }
+}
