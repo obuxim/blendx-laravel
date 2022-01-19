@@ -16,4 +16,4 @@ use Duoneos\Blendx\Controllers\RouterController;
 */
 
 Route::any('/api/{model}/{action?}/{id?}', [RouterController::class, 'route']);
-Route::any('/{model}/{action?}/{id?}', [RouterController::class, 'route']);
+Route::any('/{model}/{action?}/{id?}', [RouterController::class, 'route'])->where('model', '^(?!api$)');

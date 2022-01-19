@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Route;
 class RouterController extends Controller
 {
     public function route(Request $request, $model, $action = 'index', $id = 0) {
-        if(BlendxHelpers::isApiRoute($request->url())){
+        $api = BlendxHelpers::isApiRoute($request->url());
+        $modelClass = BlendxHelpers::routeModelToModel($model);
+        if($api){
+            if(!$modelClass){
+                return response()->json(['message' => 'Not Found!'], 404);
+            }
             $response = Response::json([
                 'model' => $model,
                 'action' => $action,
@@ -19,6 +24,9 @@ class RouterController extends Controller
             ]);
             return $response;
         }else{
+            if(!$modelClass){
+                return response('', 404);
+            }
             return "HTML";
         }
     }
